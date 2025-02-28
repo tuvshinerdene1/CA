@@ -30,14 +30,20 @@ void to16bit(int *arr, int num)
         for(int i = 15; i >= 0; i--){
             if(arr[i] == 1){
                 start = i;
+                break;
             }
         }
         for(int i = start-1; i>=0; i--){
-            
+            if(arr[i]==0){
+                arr[i] = 1;
+            }
+            else{
+                arr[i] = 0;
+            }
         }
     }
 }
-void print(int *arr, int size)
+void printbin(int *arr, int size)
 {
     for (int i = 0; i < size; i++)
     {
@@ -50,25 +56,37 @@ int main()
 
     printf("test1: 25-> ");
     to16bit(arr, 25);
-    print(arr, 16);
+    printbin(arr, 16);
 
     printf("\n");
 
     printf("test2: 108-> ");
     to16bit(arr, 108);
-    print(arr, 16);
+    printbin(arr, 16);
 
     printf("\n");
 
     printf("test3: 197-> ");
     to16bit(arr, 197);
-    print(arr, 16);
+    printbin(arr, 16);
 
     printf("\n");
 
     printf("test3: 0-> ");
     to16bit(arr, 0);
-    print(arr, 16);
+    printbin(arr, 16);
+
+    printf("\n");
+
+    printf("test4: -2 -> ");
+    to16bit(arr, -2);
+    printbin(arr, 16);
+
+    printf("\n");
+
+    printf("test5: -10 -> ");
+    to16bit(arr, -10);
+    printbin(arr, 16);
 
     printf("\n");
 
